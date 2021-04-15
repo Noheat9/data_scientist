@@ -33,3 +33,6 @@ puts lowest_value(hello)
 def less_than_6k(hash)
     return hash.select{|k, v| v < 6000}
 end
+puts less_than_6k(hello)
+
+def perform

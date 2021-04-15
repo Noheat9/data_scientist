@@ -23,16 +23,22 @@ hello = my_hash(arr_01, coucou)
 def biggest_value(hash)
     return hash.select{|k, v| v == hash.values.max}
 end
-puts biggest_value(hello)
 
 def lowest_value(hash)
     return hash.select{|k, v| v == hash.values.min}
 end
-puts lowest_value(hello)
 
 def less_than_6k(hash)
     return hash.select{|k, v| v < 6000}
 end
-puts less_than_6k(hello)
 
-def perform
+def perform(hello)
+    puts "La ou les crypto qui ont la plus grosse valeur :" + biggest_value(hello).to_s
+    puts
+    puts "La ou les crypto qui ont la plus petite valeur :" + lowest_value(hello).to_s
+    puts
+    puts "Les devises dont le cours est inférieur à 6000 :" + less_than_6k(hello).to_s
+    puts
+end
+
+perform(hello)

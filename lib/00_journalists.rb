@@ -25,7 +25,7 @@ end
 
 def maj_handle(arr)
     return arr.count { |handle| handle =~ /[A-Z]/ }
-  end
+end
 
 
 #Trie la liste de handle par ordre alphabétique.
@@ -52,14 +52,11 @@ end
 #Sors-moi une répartition des handle par taille de ces derniers (nombre de handle avec 1 caractère, nombre de handle avec 2 caractères, nombre de handle avec 3 caractères, etc)
 
 def taille(arr)
-    repartition = Hash.new(0)
-  
+    repartition = Hash.new(0)    
     max_length = (arr.max {|a, b| a.length <=> b.length}).length
-  
     1.upto(max_length) do |length|
-      repartition[length] = arr.count { |handle| handle.length == length }
+    repartition[length] = arr.count { |handle| handle.length == length }
     end
-  
     return repartition
 end
 
@@ -80,6 +77,6 @@ def perform(arr)
     puts "La position de la personne @epenser est de : " + position(arr).to_s
     puts
     puts "La repartition des Handles (avec @ puisque ce n'est pas spécifié...) est : " + taille(arr).to_s
-  end
+end
   
-  perform(array_twitter)
+perform(array_twitter)

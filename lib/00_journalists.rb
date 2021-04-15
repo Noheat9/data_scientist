@@ -6,7 +6,6 @@ def count_handle(arr)
     return arr.size
 end 
 
-puts count_handle(array_twitter)
 
 # Quel est le handle le plus court de cette liste ?
 
@@ -14,7 +13,6 @@ def shortest_handle(arr)
     return arr.min_by {|x| x.length}
 end
 
-puts shortest_handle(array_twitter)
 
 #Combien y-a-t'il de handle contenant 5 caractères (le @ ne compte pas pour un caractère)
 
@@ -23,15 +21,12 @@ def mots_5(arr)
     return arr.count { |handle| handle.length == 6 }
 end
 
-puts mots_5(array_twitter)
-
 # Combien commencent par une majuscule (première lettre juste après le @) ?
 
 def maj_handle(arr)
     return arr.count { |handle| handle =~ /[A-Z]/ }
   end
 
-puts maj_handle(array_twitter)
 
 #Trie la liste de handle par ordre alphabétique.
 
@@ -39,7 +34,6 @@ def alpha_order(arr)
     return arr.sort_by! { |alpha| alpha.downcase }
 end
 
-puts alpha_order(array_twitter)
 
 #Trie la liste de handle par taille des handle (les plus petits en premiers, les plus grands après)
 
@@ -47,7 +41,6 @@ def range(arr)
     return arr.sort_by(&:length)
 end
 
-puts range(array_twitter)
 
 #Quelle est la position dans l'array de la personne @epenser ?
 
@@ -55,7 +48,6 @@ def position(arr)
     return arr.index ("@epenser")
 end
 
-puts position(array_twitter)
 
 #Sors-moi une répartition des handle par taille de ces derniers (nombre de handle avec 1 caractère, nombre de handle avec 2 caractères, nombre de handle avec 3 caractères, etc)
 
@@ -69,6 +61,25 @@ def taille(arr)
     end
   
     return repartition
-  end
+end
 
-puts taille(array_twitter)
+
+def perform(arr)
+    puts "Le nombre de Handles est de : " + count_handle(arr).to_s
+    puts
+    puts "Le handle le plus court est : " + shortest_handle(arr).to_s
+    puts
+    puts "Le nombre de Handles avec 5 caractères est de : " + mots_5(arr).to_s
+    puts
+    puts "Le nombre de Handles qui commence par une majuscule : " + maj_handle(arr).to_s
+    puts
+    puts "Voici le tri par ordre alphabétique : " + alpha_order(arr).to_s
+    puts
+    puts "Voici le tri par ordre de taille : " + range(arr).to_s
+    puts
+    puts "La position de la personne @epenser est de : " + position(arr).to_s
+    puts
+    puts "La repartition des Handles (avec @ puisque ce n'est pas spécifié...) est : " + taille(arr).to_s
+  end
+  
+  perform(array_twitter)
